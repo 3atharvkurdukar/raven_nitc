@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:raven_nitc/widgets/announcement_card.dart';
-import 'package:raven_nitc/widgets/event_card.dart';
+import 'package:raven_nitc/components/announcement_card.dart';
+import 'package:raven_nitc/components/event_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
