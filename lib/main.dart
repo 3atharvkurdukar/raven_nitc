@@ -4,8 +4,14 @@ import 'package:raven_nitc/amenities.dart';
 import 'package:raven_nitc/home.dart';
 import 'package:raven_nitc/mess.dart';
 import 'package:raven_nitc/profile.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -17,7 +23,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Raven for NITC',
         theme: ThemeData.dark().copyWith(
-          primaryColor: Colors.white,
+          splashColor: Colors.black,
+          primaryColor: Colors.black,
           scaffoldBackgroundColor: Color.fromARGB(255, 35, 35, 35),
           bottomNavigationBarTheme: BottomNavigationBarThemeData(
             backgroundColor: Colors.black,

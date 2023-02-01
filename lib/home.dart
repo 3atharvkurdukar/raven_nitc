@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           height: 320,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
