@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:raven_nitc/widgets/announcement_card.dart';
+import 'package:raven_nitc/widgets/event_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,23 +22,15 @@ class HomePage extends StatelessWidget {
         ),
         Container(
           height: 320,
-          margin: EdgeInsets.symmetric(vertical: 8),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(),
             itemCount: 5,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
-              child: Card(
-                child: Container(
-                  width: 240,
-                  margin: EdgeInsets.all(16),
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Event $index',
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
-                ),
+              child: EventCard(
+                title: 'Event $index',
+                imageUrl: 'https://picsum.photos/seed/$index/480/640',
               ),
             ),
           ),
@@ -56,25 +50,13 @@ class HomePage extends StatelessWidget {
         Container(
           margin: EdgeInsets.all(16),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Card(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Text(
-                        'Announcement 1',
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                for (int i = 0; i < 5; i++)
+                  AnnouncementCard(
+                      sender: 'Sender $i', title: 'Announcement $i')
+              ]),
         ),
       ],
     );
