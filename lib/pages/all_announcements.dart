@@ -6,32 +6,26 @@ class AllAnnouncementsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Announcements',
-                  style: Theme.of(context).textTheme.headlineSmall),
-              // OutlinedButton(onPressed: null, child: Text('View All')),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('All Events'),
+        backgroundColor: Colors.black,
+      ),
+      body: ListView(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(16),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  for (int i = 0; i < 5; i++)
+                    AnnouncementCard(
+                        sender: 'Sender $i', title: 'Announcement $i')
+                ]),
           ),
-        ),
-        Container(
-          margin: EdgeInsets.all(16),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                for (int i = 0; i < 5; i++)
-                  AnnouncementCard(
-                      sender: 'Sender $i', title: 'Announcement $i')
-              ]),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
