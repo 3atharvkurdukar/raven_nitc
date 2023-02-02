@@ -2,6 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:raven_nitc/services/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
+  signInWithGoogle(BuildContext context) async {
+    try {
+      await AuthService().signInWithGoogle();
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text(e.toString()),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text('OK'))
+              ],
+            );
+          });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +49,7 @@ class LoginPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 64),
               child: ElevatedButton.icon(
-                onPressed: () => AuthService().signInWithGoogle(),
+                onPressed: () => signInWithGoogle(context),
                 icon: Image.asset('assets/images/google_logo.png', width: 20),
                 label: Text('Continue with Google'),
                 style: ButtonStyle(
