@@ -45,6 +45,7 @@ class _EventsState extends State<Events> {
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               child: EventCard(
+                id: document.id,
                 title: data['title'],
                 imageUrl: data['imageUrl'],
               ),

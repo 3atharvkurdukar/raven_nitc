@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:raven_nitc/pages/event_description.dart';
+import 'package:raven_nitc/pages/event_details.dart';
 
 class EventCard extends StatelessWidget {
   const EventCard(
@@ -33,7 +33,7 @@ class EventCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => EventDescription(id: id)),
+          MaterialPageRoute(builder: (context) => EventDetailsPage(docId: id)),
         );
       },
       child: Card(
