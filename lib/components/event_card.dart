@@ -45,27 +45,3 @@ class EventCard extends StatelessWidget {
     );
   }
 }
-
-
-
-//  child: GestureDetector(
-//                 onTap: () {
-//                   Navigator.push(
-//                     context,
-//                     MaterialPageRoute(builder: (context) => SignUp()),
-//                   );
-//                 },
-//                 child: SizedBox(
-//                     width: 150.0,
-//                       child: Text(
-//                         'Sign Up',
-//                         style: GoogleFonts.poppins(
-//                           fontSize: 26,
-//                           color: const Color(0xff202020),
-//                           fontWeight: FontWeight.w600,
-//                           height: 0.9615384615384616,
-//                         ),
-//                         textAlign: TextAlign.center,
-//                       ),
-//                 ),
-//               )
