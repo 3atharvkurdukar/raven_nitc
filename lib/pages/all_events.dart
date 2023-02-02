@@ -8,29 +8,22 @@ class AllEventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        Padding(
+        Container(
           padding: EdgeInsets.all(16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+          alignment: Alignment.center,
+          child:
               Text('Events', style: Theme.of(context).textTheme.headlineSmall),
-              // OutlinedButton(onPressed: null, child: Text('View All')),
-            ],
-          ),
         ),
-        SizedBox(
-          height: 320,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            physics: BouncingScrollPhysics(),
-            itemCount: 5,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              child: EventCard(
-                title: 'Event $index',
-                imageUrl: 'https://picsum.photos/seed/$index/480/640',
-              ),
+        ListView.builder(
+          scrollDirection: Axis.vertical,
+          physics: BouncingScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 5,
+          itemBuilder: (context, index) => Padding(
+            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+            child: EventCard(
+              title: 'Event $index',
+              imageUrl: 'https://picsum.photos/seed/$index/480/640',
             ),
           ),
         ),
