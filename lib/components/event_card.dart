@@ -8,10 +8,11 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget cardBody = Container(
-        width: 240,
-        alignment: Alignment.center,
-        child: Image.network(imageUrl!, fit: BoxFit.cover));
+    Widget cardBody = Image.network(
+      imageUrl!,
+      fit: BoxFit.cover,
+      width: 240,
+    );
 
     if (imageUrl == null) {
       cardBody = Container(
@@ -25,7 +26,8 @@ class EventCard extends StatelessWidget {
       );
     }
     return Card(
-      clipBehavior: Clip.hardEdge,
+      semanticContainer: true,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       margin: EdgeInsets.symmetric(horizontal: 8),
       child: cardBody,
     );

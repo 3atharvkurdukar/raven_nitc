@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:raven_nitc/components/announcement_card.dart';
-import 'package:raven_nitc/components/event_card.dart';
+import 'package:raven_nitc/components/events.dart';
 import 'all_events.dart';
 import 'all_announcements.dart';
 
@@ -38,18 +38,7 @@ class HomePage extends StatelessWidget {
         ),
         SizedBox(
           height: 320,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            physics: BouncingScrollPhysics(),
-            itemCount: 5,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              child: EventCard(
-                title: 'Event $index',
-                imageUrl: 'https://picsum.photos/seed/$index/480/640',
-              ),
-            ),
-          ),
+          child: Events(scrollDirection: Axis.horizontal),
         ),
         Padding(
           padding: EdgeInsets.all(16),
