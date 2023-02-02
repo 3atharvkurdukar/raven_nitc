@@ -4,6 +4,8 @@ import 'package:raven_nitc/pages/amenities.dart';
 import 'package:raven_nitc/pages/home.dart';
 import 'package:raven_nitc/pages/mess.dart';
 import 'package:raven_nitc/pages/profile.dart';
+import 'package:raven_nitc/navigator.dart';
+import 'package:raven_nitc/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: MyNavigator(),
+        home: AuthPage(),
       ),
     );
   }
@@ -121,17 +123,4 @@ class MyNavigator extends StatelessWidget {
       ),
     );
   }
-}
-
-class PageControllerModel with ChangeNotifier {
-  int _selectedIndex = 0;
-  PageController _pageController = PageController();
-
-  int get selectedIndex => _selectedIndex;
-  set selectedIndex(int value) {
-    _selectedIndex = value;
-    notifyListeners();
-  }
-
-  PageController get pageController => _pageController;
 }
