@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:raven_nitc/components/announcement_card.dart';
+import 'package:raven_nitc/components/announcements.dart';
 
 class AllAnnouncementsPage extends StatelessWidget {
   const AllAnnouncementsPage({super.key});
@@ -8,7 +8,7 @@ class AllAnnouncementsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('All Events'),
+        title: Text('All Announcements'),
         backgroundColor: Colors.black,
       ),
       body: ListView(
@@ -18,11 +18,7 @@ class AllAnnouncementsPage extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  for (int i = 0; i < 5; i++)
-                    AnnouncementCard(
-                        sender: 'Sender $i', title: 'Announcement $i')
-                ]),
+                children: <Widget>[Announcements()]),
           ),
         ],
       ),

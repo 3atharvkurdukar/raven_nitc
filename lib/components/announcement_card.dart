@@ -20,12 +20,13 @@ class AnnouncementCard extends StatelessWidget {
               children: <Widget>[
                 Text(
                   sender,
-                  style: Theme.of(context).textTheme.titleMedium,
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[400]),
                 ),
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
+                SizedBox(height: 8),
+                Text(title, style: TextStyle(fontSize: 16)),
               ],
             ),
           ),

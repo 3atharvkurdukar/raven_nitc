@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:raven_nitc/components/announcement_card.dart';
+import 'package:raven_nitc/components/announcements.dart';
 import 'package:raven_nitc/components/events.dart';
 import 'all_events.dart';
 import 'all_announcements.dart';
@@ -70,16 +70,10 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.all(16),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                for (int i = 0; i < 5; i++)
-                  AnnouncementCard(
-                      sender: 'Sender $i', title: 'Announcement $i')
-              ]),
-        ),
+            margin: EdgeInsets.all(16),
+            child: Announcements(
+              activeOnly: true,
+            )),
       ],
     );
   }
