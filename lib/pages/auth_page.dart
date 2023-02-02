@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:raven_nitc/navigator.dart';
-import 'package:raven_nitc/pages/home.dart';
 import 'package:raven_nitc/pages/login.dart';
 
 class AuthPage extends StatelessWidget {
