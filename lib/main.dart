@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:raven_nitc/amenities.dart';
-import 'package:raven_nitc/home.dart';
-import 'package:raven_nitc/mess.dart';
-import 'package:raven_nitc/profile.dart';
+import 'package:raven_nitc/pages/amenities.dart';
+import 'package:raven_nitc/pages/home.dart';
+import 'package:raven_nitc/pages/mess.dart';
+import 'package:raven_nitc/pages/profile.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,6 +48,36 @@ class MyApp extends StatelessWidget {
 }
 
 class MyNavigator extends StatelessWidget {
+  final String title = 'Speed dial';
+
+  SpeedDial _speedDial() {
+    return SpeedDial(
+      animatedIcon: AnimatedIcons.add_event,
+      animatedIconTheme: IconThemeData(size: 22.0),
+      backgroundColor: Colors.white,
+      visible: true,
+      curve: Curves.bounceIn,
+      children: [
+        SpeedDialChild(
+          child: Icon(Icons.calendar_today),
+          backgroundColor: Colors.black,
+          label: 'New Event',
+          labelStyle: TextStyle(fontSize: 18.0),
+          labelBackgroundColor: Colors.transparent,
+          onTap: () => print('FIRST CHILD'),
+        ),
+        SpeedDialChild(
+          child: Icon(Icons.campaign_outlined),
+          backgroundColor: Colors.black,
+          label: 'New Announcement',
+          labelStyle: TextStyle(fontSize: 18.0),
+          labelBackgroundColor: Colors.transparent,
+          onTap: () => print('SECOND CHILD'),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<PageControllerModel>(context);
@@ -63,6 +94,7 @@ class MyNavigator extends StatelessWidget {
           model.selectedIndex = index;
         },
       ),
+      floatingActionButton: _speedDial(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
