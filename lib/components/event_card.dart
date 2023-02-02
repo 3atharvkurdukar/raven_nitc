@@ -11,21 +11,23 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget cardBody = Image.network(
-      imageUrl!,
-      fit: BoxFit.cover,
+    Widget cardBody = Container(
       width: 240,
+      alignment: Alignment.center,
+      margin: EdgeInsets.all(16),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.displaySmall,
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.fade,
+      ),
     );
 
-    if (imageUrl == null) {
-      cardBody = Container(
+    if (imageUrl != null) {
+      cardBody = Image.network(
+        imageUrl!,
+        fit: BoxFit.cover,
         width: 240,
-        alignment: Alignment.center,
-        margin: EdgeInsets.all(16),
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.displaySmall,
-        ),
       );
     }
 

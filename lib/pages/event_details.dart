@@ -7,6 +7,9 @@ class EventDetailsPage extends StatelessWidget {
 
   final String docId;
 
+  String getDateTimeString(dynamic t) =>
+      DateFormat('dd MMM yy, hh:mm a').format((t as Timestamp).toDate());
+
   @override
   Widget build(BuildContext context) {
     CollectionReference events =
@@ -38,57 +41,59 @@ class EventDetailsPage extends StatelessWidget {
                 physics: BouncingScrollPhysics(),
                 children: [
                   SizedBox(height: 16),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.network(data['imageUrl']),
-                  ),
+                  data['imageUrl'] != null
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.network(data['imageUrl']),
+                        )
+                      : Container(),
                   SizedBox(height: 16),
                   Card(
                     child: Padding(
                       padding: EdgeInsets.all(16),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                              DateFormat('dd MMM yy, hh:mm a').format(
-                                  (data['startTime'] as Timestamp).toDate()),
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          Text('-',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          Text(
-                              DateFormat('dd MMM yy, hh:mm a').format(
-                                  (data['startTime'] as Timestamp).toDate()),
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              )),
-                        ],
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: data['endTime'] != null
+                            ? Text(
+                                '${getDateTimeString(data['startTime'])}\nto\n${getDateTimeString(data['endTime'])}',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.5,
+                                ),
+                              )
+                            : Text(
+                                '${getDateTimeString(data['startTime'])}\n onwards',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                       ),
                     ),
                   ),
                   SizedBox(height: 16),
-                  Card(
-                    child: Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Text(
-                        data['description'],
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ),
-                  ),
+                  data['description'] != null
+                      ? Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(16),
+                            child: Text(
+                              data['description'].replaceAll('\\n', '\n'),
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        )
+                      : Container(),
                 ],
               ),
             ),
           );
         }
 
-        return CircularProgressIndicator();
+        return Container(
+            alignment: Alignment.center, child: CircularProgressIndicator());
       },
     );
   }
