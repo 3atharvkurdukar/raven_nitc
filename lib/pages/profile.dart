@@ -1,7 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  ProfilePage({super.key});
+
+  final user = FirebaseAuth.instance.currentUser;
+
+  void signUserOut() {
+    print('Signing out user...');
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -9,12 +17,23 @@ class ProfilePage extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: EdgeInsets.all(16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Profile', style: Theme.of(context).textTheme.headlineSmall),
-              OutlinedButton(onPressed: null, child: Text('View All')),
+              ClipOval(
+                clipBehavior: Clip.hardEdge,
+                child: Image.network(user!.photoURL!),
+              ),
+              OutlinedButton.icon(
+                  onPressed: signUserOut,
+                  icon: Icon(Icons.logout),
+                  label: Text('Log Out'),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8))),
+                  )),
             ],
           ),
         ),
