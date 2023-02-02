@@ -11,7 +11,7 @@ class Announcements extends StatefulWidget {
   final bool activeOnly;
 
   @override
-  _AnnouncementsState createState() => _AnnouncementsState();
+  State<Announcements> createState() => _AnnouncementsState();
 }
 
 class _AnnouncementsState extends State<Announcements> {

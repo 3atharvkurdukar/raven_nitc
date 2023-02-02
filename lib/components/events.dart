@@ -13,7 +13,7 @@ class Events extends StatefulWidget {
   final bool activeOnly;
 
   @override
-  _EventsState createState() => _EventsState();
+  State<Events> createState() => _EventsState();
 }
 
 class _EventsState extends State<Events> {
