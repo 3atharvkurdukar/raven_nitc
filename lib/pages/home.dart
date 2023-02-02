@@ -38,7 +38,10 @@ class HomePage extends StatelessWidget {
         ),
         SizedBox(
           height: 320,
-          child: Events(scrollDirection: Axis.horizontal),
+          child: Events(
+            scrollDirection: Axis.horizontal,
+            activeOnly: true,
+          ),
         ),
         Padding(
           padding: EdgeInsets.all(16),

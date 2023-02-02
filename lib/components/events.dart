@@ -17,14 +17,23 @@ class Events extends StatefulWidget {
 }
 
 class _EventsState extends State<Events> {
-  final db = FirebaseFirestore.instance;
-  final Stream<QuerySnapshot> _usersStream =
-      FirebaseFirestore.instance.collection('events').snapshots();
+  late Stream<QuerySnapshot> _eventsStream;
+
+  @override
+  void initState() {
+    super.initState();
+    _eventsStream = widget.activeOnly
+        ? FirebaseFirestore.instance
+            .collection('events')
+            .where('startTime', isGreaterThanOrEqualTo: DateTime.now())
+            .snapshots()
+        : FirebaseFirestore.instance.collection('events').snapshots();
+  }
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _usersStream,
+      stream: _eventsStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           print(snapshot.error.toString());
