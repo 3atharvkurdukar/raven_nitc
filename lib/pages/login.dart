@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:raven_nitc/services/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
@@ -6,6 +7,7 @@ class LoginPage extends StatelessWidget {
     try {
       await AuthService().signInWithGoogle();
     } catch (e) {
+      GoogleSignIn().signOut();
       showDialog(
           context: context,
           builder: (context) {
