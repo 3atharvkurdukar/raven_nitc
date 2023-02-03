@@ -13,12 +13,10 @@ class AllAnnouncementsPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(16),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[Announcements()]),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[Announcements()],
           ),
         ],
       ),

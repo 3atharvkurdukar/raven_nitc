@@ -69,11 +69,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-            margin: EdgeInsets.all(16),
-            child: Announcements(
-              activeOnly: true,
-            )),
+        Announcements(activeOnly: true),
       ],
     );
   }
