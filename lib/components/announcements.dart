@@ -49,9 +49,11 @@ class _AnnouncementsState extends State<Announcements> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
             Map<String, dynamic> data =
                 document.data()! as Map<String, dynamic>;
-            var path = data['authority'].path;
             return FutureBuilder<DocumentSnapshot>(
-                future: FirebaseFirestore.instance.doc(path).get(),
+                future: FirebaseFirestore.instance
+                    .collection('users')
+                    .doc(data['authority'])
+                    .get(),
                 builder: (BuildContext context,
                     AsyncSnapshot<DocumentSnapshot> userSnapshot) {
                   if (userSnapshot.hasError) {
