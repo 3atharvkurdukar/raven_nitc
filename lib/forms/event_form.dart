@@ -51,6 +51,7 @@ class MyCustomFormState extends State<MyCustomForm> {
   // XfileImage? image;
   DateTime? startDateTime;
   DateTime? endDateTime; // this thing we need to resolve!
+  String downloadUrl = '';
 
   TextEditingController dateController = TextEditingController();
   TextEditingController timeCtl = TextEditingController();
@@ -63,16 +64,6 @@ class MyCustomFormState extends State<MyCustomForm> {
     setState(() {
       _image = File(image != null ? image.path : image!.path);
     });
-  }
-
-  uploadImage(String path) async {
-    FirebaseStorage storage = FirebaseStorage.instance;
-    Reference ref = storage.ref().child("events/$path");
-    UploadTask uploadTask = ref.putFile(_image!);
-    await uploadTask.whenComplete(() => print('File Uploaded'));
-
-    String downloadUrl = await ref.getDownloadURL();
-    return downloadUrl;
   }
 
   Future<void> eventHandler() async {
@@ -90,16 +81,13 @@ class MyCustomFormState extends State<MyCustomForm> {
           backgroundColor: Colors.white));
       loading = false;
       return;
-    }
-
-    else if (startDateTime == null) {
+    } else if (startDateTime == null) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('Please select a date and time'),
           backgroundColor: Colors.white));
       loading = false;
       return;
-    }
-    else if (endDateTime != null && endDateTime!.isBefore(startDateTime!)) {
+    } else if (endDateTime != null && endDateTime!.isBefore(startDateTime!)) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('Start Date must be before End Date'),
           backgroundColor: Colors.white));
@@ -113,14 +101,16 @@ class MyCustomFormState extends State<MyCustomForm> {
       return;
     }
 
-    String path = _image != null ? _image!.path.split("/").last : 'default';
+    if (_image != null) {
+      FirebaseStorage storage = FirebaseStorage.instance;
+      String path = _image!.path.split("/").last;
+      Reference ref = storage.ref().child("events/$path");
+      UploadTask uploadTask = ref.putFile(_image!);
+      await uploadTask.whenComplete(() => print('File Uploaded'));
+      downloadUrl = await ref.getDownloadURL();
+    }
 
-    //String path = _image!.path.split("/").last;
-    String downloadUrl = '';
-    _image != null
-        ? downloadUrl = uploadImage(path)
-        : null; // this is working fine
-
+    print("this is the download url $downloadUrl");
     await FirebaseFirestore.instance.collection('events').add({
       'title': title,
       'description': description,
