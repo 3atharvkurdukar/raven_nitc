@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:provider/provider.dart';
+import 'package:raven_nitc/forms/event_form.dart';
+import 'package:raven_nitc/forms/announcement_form.dart';
 import 'package:raven_nitc/pages/amenities.dart';
 import 'package:raven_nitc/pages/home.dart';
 import 'package:raven_nitc/pages/mess.dart';
@@ -9,7 +11,7 @@ import 'package:raven_nitc/pages/profile.dart';
 class MyNavigator extends StatelessWidget {
   final String title = 'Speed dial';
 
-  SpeedDial _speedDial() {
+  SpeedDial _speedDial(BuildContext context) {
     return SpeedDial(
       animatedIcon: AnimatedIcons.add_event,
       animatedIconTheme: IconThemeData(size: 22.0),
@@ -23,7 +25,12 @@ class MyNavigator extends StatelessWidget {
           label: 'New Event',
           labelStyle: TextStyle(fontSize: 18.0),
           labelBackgroundColor: Colors.transparent,
-          onTap: () => print('FIRST CHILD'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => EventForm()),
+            );
+          },
         ),
         SpeedDialChild(
           child: Icon(Icons.campaign_outlined),
@@ -31,7 +38,12 @@ class MyNavigator extends StatelessWidget {
           label: 'New Announcement',
           labelStyle: TextStyle(fontSize: 18.0),
           labelBackgroundColor: Colors.transparent,
-          onTap: () => print('SECOND CHILD'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AnnouncementForm()),
+            );
+          },
         )
       ],
     );
@@ -53,7 +65,7 @@ class MyNavigator extends StatelessWidget {
           model.selectedIndex = index;
         },
       ),
-      floatingActionButton: _speedDial(),
+      floatingActionButton: _speedDial(context),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
