@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:raven_nitc/navigator.dart';
 import 'package:raven_nitc/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+// import 'package:raven_nitc/seed.dart';
 import 'firebase_options.dart';
 
 Future main() async {
@@ -10,6 +11,8 @@ Future main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  // populateMessDB();
+  // populateAmenitiesDB();
   runApp(MyApp());
 }
 
