@@ -1,0 +1,377 @@
+[
+    {
+        "name": "Gymnasium",
+        "sun": [
+            {
+                "startTime": "05:00 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "startTime": "04:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "mon": [
+            
+        ],
+        "tue": [
+            {
+                "startTime": "05:00 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "startTime": "04:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "wed": [
+            {
+                "startTime": "05:00 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "startTime": "04:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "thu": [
+            {
+                "startTime": "05:00 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "startTime": "04:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "fri": [
+            {
+                "startTime": "05:00 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "startTime": "04:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "sat": [
+            {
+                "startTime": "05:00 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "startTime": "04:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ]
+    },
+    {
+        "name": "Swimming Pool",
+        "sun": [
+            {
+                "gender": "F",
+                "startTime": "06:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "M",
+                "startTime": "07:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "F",
+                "startTime": "05:00 PM",
+                "endTime": "07:00 PM"
+            },
+            {
+                "gender": "M",
+                "startTime": "05:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "mon": [
+            
+        ],
+        "tue": [
+            {
+                "gender": "M",
+                "startTime": "06:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "F",
+                "startTime": "07:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "M",
+                "startTime": "05:00 PM",
+                "endTime": "07:00 PM"
+            },
+            {
+                "gender": "F",
+                "startTime": "05:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "wed": [
+            {
+                "gender": "F",
+                "startTime": "06:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "M",
+                "startTime": "07:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "F",
+                "startTime": "05:00 PM",
+                "endTime": "07:00 PM"
+            },
+            {
+                "gender": "M",
+                "startTime": "05:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "thu": [
+            {
+                "gender": "M",
+                "startTime": "06:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "F",
+                "startTime": "07:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "M",
+                "startTime": "05:00 PM",
+                "endTime": "07:00 PM"
+            },
+            {
+                "gender": "F",
+                "startTime": "05:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "fri": [
+            {
+                "gender": "F",
+                "startTime": "06:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "M",
+                "startTime": "07:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "F",
+                "startTime": "05:00 PM",
+                "endTime": "07:00 PM"
+            },
+            {
+                "gender": "M",
+                "startTime": "05:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ],
+        "sat": [
+            {
+                "gender": "M",
+                "startTime": "06:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "F",
+                "startTime": "07:15 AM",
+                "endTime": "09:00 AM"
+            },
+            {
+                "gender": "M",
+                "startTime": "05:00 PM",
+                "endTime": "07:00 PM"
+            },
+            {
+                "gender": "F",
+                "startTime": "05:00 PM",
+                "endTime": "08:00 PM"
+            }
+        ]
+    },
+    {
+        "name": "Central Computing Center",
+        "sun": [
+            
+        ],
+        "mon": [
+            {
+                "startTime": "09:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "tue": [
+            {
+                "startTime": "09:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "wed": [
+            {
+                "startTime": "09:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "thu": [
+            {
+                "startTime": "09:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "fri": [
+            {
+                "startTime": "09:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "sat": [
+            {
+                "startTime": "09:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ]
+    },
+    {
+        "name": "Library",
+        "sun": [
+            
+        ],
+        "mon": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "05:30 PM"
+            }
+        ],
+        "tue": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "05:30 PM"
+            }
+        ],
+        "wed": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "05:30 PM"
+            }
+        ],
+        "thu": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "05:30 PM"
+            }
+        ],
+        "fri": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "05:30 PM"
+            }
+        ],
+        "sat": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "05:30 PM"
+            }
+        ]
+    },
+    {
+        "name": "Study Room",
+        "sun": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "mon": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "tue": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "wed": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "thu": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "fri": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "sat": [
+            {
+                "startTime": "10:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ]
+    },
+    {
+        "name": "Auditorium",
+        "sun": [
+            
+        ],
+        "mon": [
+            {
+                "startTime": "06:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "tue": [
+            {
+                "startTime": "06:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "wed": [
+            {
+                "startTime": "06:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "thu": [
+            {
+                "startTime": "06:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "fri": [
+            {
+                "startTime": "06:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ],
+        "sat": [
+            {
+                "startTime": "06:00 AM",
+                "endTime": "11:59 PM"
+            }
+        ]
+    }
+]
