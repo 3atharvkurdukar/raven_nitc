@@ -34,7 +34,7 @@ class Mess extends State<MessDetails> {
     Map<int, String> weekdays = {
       1: "mon",
       2: "tue",
-      3: "wed",
+      3: "wed",       
       4: "thu",
       5: "fri",
       6: "sat",
@@ -45,8 +45,8 @@ class Mess extends State<MessDetails> {
   }
 
   List<Widget> mess = <Widget>[
-    Text('Registered'),
-    Text('AllMess'),
+    Text('All'),
+    Text('Vegonly'),
   ];
 
   @override
@@ -98,13 +98,35 @@ class Mess extends State<MessDetails> {
                         ),
                       ],
                     )),
+                Container(
+                  height: 50,
+                  alignment: Alignment.topRight,
+                  child: ToggleButtons(
+                    children: mess,
+                    isSelected: _selectedMess,
+                    onPressed: (int index) {
+                      setState(() {
+                        for (int buttonIndex = 0;
+                            buttonIndex < _selectedMess.length;
+                            buttonIndex++) {
+                          if (buttonIndex == index) {
+                            _selectedMess[buttonIndex] = true;
+                          } else {
+                            _selectedMess[buttonIndex] = false;
+                          }
+                        }
+                      });
+                    },
+                  ),
+                ),
                 ...data.map((d) => MessCard(
                     name: d['name'],
                     vegOnly: d['vegOnly'],
                     breakfast: d[getWeekday()]["breakfast"],
                     lunch: d[getWeekday()]["lunch"],
                     snacks: d[getWeekday()]["snacks"],
-                    dinner: d[getWeekday()]["dinner"]))
+                    dinner: d[getWeekday()]["dinner"],
+                    selection: _selectedMess[1]))
               ],
             );
           }
@@ -123,6 +145,7 @@ class MessCard extends StatelessWidget {
   final List<dynamic> snacks;
   final List<dynamic> dinner;
   final bool vegOnly;
+  final bool selection;
   MessCard(
       {super.key,
       required this.name,
@@ -130,7 +153,8 @@ class MessCard extends StatelessWidget {
       required this.breakfast,
       required this.lunch,
       required this.snacks,
-      required this.dinner});
+      required this.dinner,
+      required this.selection});
 
   String add(List<dynamic> lst, String time) {
     var ite = lst.asMap().entries.iterator;
@@ -146,60 +170,64 @@ class MessCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Text(
-            name,
-            textAlign: TextAlign.left,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          Card(
+    return (selection == vegOnly || selection == false)
+        ? Container(
+            margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Padding(
-                    padding: EdgeInsets.all(16),
-                    child:
-                        Column(children: [Text(add(breakfast, "Breakfast"))])),
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Column(children: [Text(add(lunch, "Lunch"))])),
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Column(children: [Text(add(snacks, "Snacks"))])),
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Column(children: [Text(add(dinner, "Dinner"))])),
+                Text(
+                  name,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Column(
+                              children: [Text(add(breakfast, "Breakfast"))])),
+                    ],
+                  ),
+                ),
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Column(children: [Text(add(lunch, "Lunch"))])),
+                    ],
+                  ),
+                ),
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Padding(
+                          padding: EdgeInsets.all(16),
+                          child:
+                              Column(children: [Text(add(snacks, "Snacks"))])),
+                    ],
+                  ),
+                ),
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Padding(
+                          padding: EdgeInsets.all(16),
+                          child:
+                              Column(children: [Text(add(dinner, "Dinner"))])),
+                    ],
+                  ),
+                )
               ],
             ),
           )
-        ],
-      ),
-    );
+        : Container();
   }
 }
