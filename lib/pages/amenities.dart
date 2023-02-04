@@ -7,15 +7,15 @@ class Amenity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const appTitle = 'Add Event';
+
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(appTitle),
+
         backgroundColor: Colors.black,
         centerTitle: true,
       ),
-      body: const AmenitiesPage(),
+      body: AmenitiesPage(),
     );
   }
 }
